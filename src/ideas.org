@@ -62,7 +62,7 @@
   + slowtext: for letter in string: if (letter is /): {Thread.sleep(1000)} else {print(letter) Thread.sleep(50)}
 
 * dialouge
-  ** for tutorial and backstory
+** for tutorial and backstory
 You wake up. As you blink the blurriness away, you notice that you - pretty obviously - aren't standing behind your
 cash register, bravely manning the fort of a rural Wyoming Dollar Tree in the middle of nowhere anymore. Instead,
 you're sitting down on the edge of an operating table in the middle of ... a cave? And a lot of it looks like it's on
