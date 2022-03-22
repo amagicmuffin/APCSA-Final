@@ -1,0 +1,89 @@
+* plotline
+  What's your name?
+  [get name]
+  go to main menu (RET to play, [settings])
+    + (resize window for best experience?)
+
+* settings
+  + text speed
+    + have an interactable display that prompts for int then shows you how fast your chosen text speed is.
+    + have the sample text be randomly chosen from a list
+
+* objects
+  + class Entity
+    + void tick()  # details what each enemy does each game tick
+    + int id
+    + class Fireball
+      + class fireball
+        + int iPos
+        + int jPos
+        + static int idGenerator
+        + when making a new
+        + void tick():
+          + continue moving in a direction by updating i and j pos
+          + maybe kill tomatoes when they're 1 block far away instead of right on top of?
+
+  + abstract Enemy
+    + int hp
+    + class BossTomato
+      + 3by3 'X' grid gets added to the map somewhere else (until it dies)
+      + super hp = many idk
+      + super tick(): attack player if they're too close (further range than Vine)
+      + sits there looking menacing
+    + abstract Spawn  # things that get spawned
+      + int iPos  # position vars in constructor decides where they spawn
+      + int jPos
+      + class Vine
+        + super hp = 5 or smth
+        + int maturity = -5 or smth
+        + super tick():
+          + when first added to arraylist enemies, spawn as a "crack" in the "floor"
+          + alternates char '\' and char '/' until maturity = 0 or something
+          + every so often, spawn a Tomato (by adding new Tomato(this.x, this.y) to some global arraylist of enemies)
+          + damage player if they're too close
+          + maturity++ each tick
+        + first time talcum the alchemist sees one, they point out that the floor is cracking, move away maybe?
+      + class Tomato
+        + hp = 1
+        + super tick():
+         + move towards player, deal damage if hit player (have player complain about acid the first time)
+
+* combat game loop
+  + do player thing
+  + for enemy in enemies, enemy.tick()
+  + for fireball in fireballs, fireball.tick()
+  + check for aoe attack, if applicable
+
+* misc ideas
+  + main boss is a tomato tree even though they grow on vines lmao
+    + have protag make witty remark and then talcum the alchemist say something about how he made it idk
+  + have the walk to the lab be the tutorial for the movement??
+  + enter should move player according to last facing, w/a/s/d + enter should move in that direction and update facing
+  + slowtext: for letter in string: if (letter is /): {Thread.sleep(1000)} else {print(letter) Thread.sleep(50)}
+
+* dialouge
+  ** for tutorial and backstory
+You wake up. As you blink the blurriness away, you notice that you - pretty obviously - aren't standing behind your
+cash register, bravely manning the fort of a rural Wyoming Dollar Tree in the middle of nowhere anymore. Instead,
+you're sitting down on the edge of an operating table in the middle of ... a cave? And a lot of it looks like it's on
+fire? Also, there's this dude just standing in front of you. He's impeccably dressed in a three piece suit and
+sports some noticeably cloven hooves.
+
+[name]: Oof oof ouchie head hurt what happening
+
+Satan: Hey there [name]. I brought you down here because, well, God told me to. Something something His Plan something
+something Chosen One - I wasn't really paying attention. But basically, now you can throw fire out of your hands. I
+kinda had to scramble your brain to give you magic so uh lets get you on your feet again, yeah?
+
+He snaps his fingers, and
+
+[open UI]
+
+[name]: whatsgoingon
+
+Satan: Oh yeah that just lets the fire gremlins I put in your soul look around, don't worry about it. Here, let's just
+start out with some walking, mm? w, a, s, or d and then press enter to move up, left, down, or right, or just enter to
+move in the direction you were last facing.
+
+
+
