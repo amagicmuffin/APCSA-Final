@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-/**
- * This class'll have to be renamed later.
- */
+
 public class UI {
     public static final String line = "########################################\n";
     public static final String emptyLine = "#                                      #\n";
@@ -25,11 +23,12 @@ public class UI {
         }
     }
 
-    // dialogues are split into blocks by user RET
-    // blocks are split into lines
     /**
      * prints out a dialogue
-     * @param dialogue each item will be a line that is printed out.
+     * dialogues are split into blocks by user RET
+     * blocks are split into lines
+     * @param dialogue each item will be a block of text
+     *                 each item of an item will be a line
      *                 a line should be shorter than this.width - 4 characters
      *                 there should be less than this.height - 4 lines
      */
@@ -86,7 +85,7 @@ public class UI {
         }            
     }
 
-    // TODO
+    // TODO print entire ui if given dialogue, map, objective
     //public static void print(Map map) {
     //
     //}
