@@ -30,7 +30,7 @@
       + super hp = many idk
       + super tick(): attack player if they're too close (further range than Vine)
       + sits there looking menacing
-    + abstract Spawn  # things that get spawned
+    + abstract Spawnable  # things that get spawned
       + int iPos  # position vars in constructor decides where they spawn
       + int jPos
       + class Vine
