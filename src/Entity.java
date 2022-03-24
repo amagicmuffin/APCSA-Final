@@ -1,15 +1,13 @@
 public class Entity {
-    private String id;
+    private int id;
     private static int nextId = 0;
     
     public Entity() {
-        // in child classes, replace E with what class they are
-        // Fireball = F, Enemy = N, etc
-        this.id = "E" + nextId;
+        this.id = nextId;
         nextId++;
     }
 
-    public String getid() {
+    public int getid() {
         return id;
     }
 }

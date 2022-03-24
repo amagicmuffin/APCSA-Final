@@ -56,12 +56,12 @@
   + check for aoe attack, if applicable
 
 * misc ideas
-  + main boss is a tomato tree even though they grow on vines lmao
-    + have protag make witty remark and then talcum the alchemist say something about how he made it idk
-  + have the walk to the lab be the tutorial for the movement??
-  + enter should move player according to last facing, w/a/s/d + enter should move in that direction and update facing
-  + slowtext: for letter in string: if (letter is /): {Thread.sleep(1000)} else {print(letter) Thread.sleep(50)}
   + ui: dialouge, map, input, objective
+  + new thing
+    + have all entities have i, jpos
+    + have entities have boolean isAt(i,j) that detects if they are at those coords
+    + all entities except for boss return true if params i,j = this.i,j
+    + boss override: return true if params i,j are 1 or 0 away from boss.i,j
   + during tutorial, if you bump into devil
     + 1st time "Don't push me." 2nd: "Don't push me. Last warning." 3rd: throw error: "I warned you"
 
