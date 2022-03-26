@@ -1,7 +1,7 @@
+import Logic.*;
+
 public class Main {
     public static void main(String[] args) {
-//        TutorialLevel one = new TutorialLevel();
-//        CombatLevel two = new CombatLevel();
         String[][] longer = {
             {
                 "These are not my teardrops,",

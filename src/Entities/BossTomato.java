@@ -1,3 +1,7 @@
+package Entities;
+
+import Levels.CombatLevel;
+
 public class BossTomato extends Enemy {
     public BossTomato() {
         super();

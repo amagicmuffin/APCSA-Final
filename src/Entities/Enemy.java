@@ -1,3 +1,5 @@
+package Entities;
+
 public abstract class Enemy extends Entity {
     int hp;
 

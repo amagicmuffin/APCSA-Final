@@ -1,3 +1,5 @@
+package Entities;
+
 public class Tomato extends SpawnableEnemy {
     public Tomato() {
         super();

@@ -1,3 +1,7 @@
+package Entities;
+
+import org.omg.CORBA.Environment;
+
 public class Player extends Entity {
     String facing;
 
@@ -5,6 +9,7 @@ public class Player extends Entity {
         super();
         super.setId("P" + super.getId().substring(1));
         this.facing = facing;
+
     }
 
     @Override

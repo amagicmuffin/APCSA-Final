@@ -64,6 +64,27 @@
     + boss override: return true if params i,j are 1 or 0 away from boss.i,j
   + during tutorial, if you bump into devil
     + 1st time "Don't push me." 2nd: "Don't push me. Last warning." 3rd: throw error: "I warned you"
+  + VERY IMPORTANT
+    + make sure Vines cannot spawn inside the player. thats going to be some wonkily buggy code for sure
+    + spawn Vine after processing player movement
+    + after player move is processed, the spawned Vine should not be at player.i, j
+    + player shouldn't be able to walk over cracked ground since its not the ground tile
+    + brainstorming for player movement:
+      + let Player extend Entity
+      + let tryMove() be a method in Player
+      + tryMove(direction)
+          if player isn't at edge of map {  // simulates walls being immovable
+            movePlayer(direction)
+            for Entity in EntityList
+              if this.overlaps(Entity)  // boolean overlaps(Entity e) {} should check if i,j of e same as i,j of this
+                if Entity is a Tomato
+                  damage player
+                  delete Entity (the tomato) from EntityList  // write a func for this somewhere.
+                                                              // use id to delete correct entity?
+                else // so, Entity blocks movement
+                  movePlayer back
+                  break
+          }
 
 * dialouge
 ** for tutorial and backstory
@@ -97,7 +118,8 @@ Satan: Ah look at how you walk! I did a great job. Now, press just [ENTER] to mo
 (add "Move with [ENTER]" to objectives)
 
 [player movement]
-
+// TODO NOTE: [ENTER] alone should always repeat the last action EXCEPT for when using flameburst
+// since we want player to really feel the weight of keysmashing
 Satan: Great! Alright, now lets test out your new powers. Press [SPACE] and then [ENTER]. 
 (unlock fireball)
 (add "Throw a fireball with [SPACE] + [ENTER]" to objectives)

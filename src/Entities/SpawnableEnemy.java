@@ -1,3 +1,5 @@
+package Entities;
+
 public abstract class SpawnableEnemy extends Entity {
     public SpawnableEnemy() {
         super();

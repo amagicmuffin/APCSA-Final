@@ -1,4 +1,7 @@
+package Levels;
+
 import java.util.ArrayList;
+import Entities.*;
 
 public class CombatLevel {
     public CombatLevel() {

@@ -1,3 +1,5 @@
+package Levels;
+
 import java.util.Scanner;
 
 public class TutorialLevel {

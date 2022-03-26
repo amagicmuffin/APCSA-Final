@@ -1,5 +1,6 @@
-import java.util.Scanner;
+package Logic;
 
+import java.util.Scanner;
 
 public class UI {
     public static final String line = "########################################\n";

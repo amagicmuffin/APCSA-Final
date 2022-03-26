@@ -1,3 +1,5 @@
+package Entities;
+
 public class Vine extends SpawnableEnemy {
     public Vine() {
         super();
