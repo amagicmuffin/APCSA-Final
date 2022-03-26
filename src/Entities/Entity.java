@@ -1,14 +1,19 @@
 package Entities;
 
+import Logic.Environment;
+
 public abstract class Entity {
     private String id;
+    private static int nextId = 0;
     private int iPos;
     private int jPos;
-    private static int nextId = 0;
-    
-    public Entity() {
+    private Environment currentEnvironment;
+
+    public Entity(Environment e) {
         this.id = "E" + nextId;
         nextId++;
+
+        currentEnvironment = e;
     }
 
     public String getId() {
@@ -17,6 +22,30 @@ public abstract class Entity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getiPos() {
+        return iPos;
+    }
+
+    public void setiPos(int iPos) {
+        this.iPos = iPos;
+    }
+
+    public int getjPos() {
+        return jPos;
+    }
+
+    public void setjPos(int jPos) {
+        this.jPos = jPos;
+    }
+
+    public Environment getCurrentEnvironment() {
+        return currentEnvironment;
+    }
+
+    public void setCurrentEnvironment(Environment e) {
+        currentEnvironment = e;
     }
 
     /**

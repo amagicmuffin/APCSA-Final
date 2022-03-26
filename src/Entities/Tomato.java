@@ -1,8 +1,10 @@
 package Entities;
 
+import Logic.Environment;
+
 public class Tomato extends SpawnableEnemy {
-    public Tomato() {
-        super();
+    public Tomato(Environment e) {
+        super(e);
         super.setId("T" + super.getId().substring(1));
     }
 

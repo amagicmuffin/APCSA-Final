@@ -1,5 +1,6 @@
 package Logic;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -86,8 +87,14 @@ public class UI {
         }            
     }
 
-    // TODO print entire ui if given dialogue, map, objective
-    //public static void print(Map map) {
-    //
-    //}
+    // TODO use recursion:
+    // render(Environ), do a dialogue, remove the dialogue, after user [ENTER], render(the new Environ)
+    /**
+     * Takes an Environment as a parameter.
+     * Renders that Environment (including the map, current goal, and dialogue)
+     * If dialogue is queued for the Environment, let user [ENTER] through it
+     */
+    public static void render(Environment environment) {
+
+    }
 }

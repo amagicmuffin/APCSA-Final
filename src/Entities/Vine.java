@@ -1,8 +1,10 @@
 package Entities;
 
+import Logic.Environment;
+
 public class Vine extends SpawnableEnemy {
-    public Vine() {
-        super();
+    public Vine(Environment e) {
+        super(e);
         super.setId("V" + super.getId().substring(1));
     }
 

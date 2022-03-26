@@ -1,10 +1,10 @@
 package Entities;
 
-import Levels.CombatLevel;
+import Logic.Environment;
 
 public class BossTomato extends Enemy {
-    public BossTomato() {
-        super();
+    public BossTomato(Environment e) {
+        super(e);
         super.setId("B" + super.getId().substring(1));
     }
 

@@ -1,15 +1,14 @@
 package Entities;
 
-import org.omg.CORBA.Environment;
+import Logic.Environment;
 
 public class Player extends Entity {
     String facing;
 
-    public Player(String facing) {
-        super();
+    public Player(Environment e, String facing) {
+        super(e);
         super.setId("P" + super.getId().substring(1));
         this.facing = facing;
-
     }
 
     @Override
