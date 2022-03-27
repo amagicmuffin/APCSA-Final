@@ -2,6 +2,8 @@ import Logic.*;
 
 public class Main {
     public static void main(String[] args) {
+        // UI.dialogueBoxPrint test
+        /*
         String[][] longer = {
             {
                 "These are not my teardrops,",
@@ -21,6 +23,18 @@ public class Main {
             }            
         };
         
-        UI.dialogueOnlyPrint(longer);
+        UI.dialogueBoxPrint(longer);
+        */
+
+        // UI.printMap test
+        char[][] map = {
+                {'1','2'},
+                {'3','4'},
+                {'5','6'}
+        };
+
+        Environment walmart = new Environment(map);
+
+        UI.printMap(walmart);
     }
 }

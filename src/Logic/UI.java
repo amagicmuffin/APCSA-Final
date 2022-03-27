@@ -10,10 +10,16 @@ public class UI {
     public static final int height = 20;
     private static Scanner scan = new Scanner(System.in);
 
+    /**
+     * prints out many newlines
+     */
     public static void simpleClearScreen() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
+    /**
+     * prints out item 0, prompts for user input, prints out item 0 and 1, prompts for user input, etc
+     */
     public static void simpleDialogue(String[] dialogue) {
         for(int i = 0; i < dialogue.length; i++) {
             simpleClearScreen();
@@ -34,7 +40,7 @@ public class UI {
      *                 a line should be shorter than this.width - 4 characters
      *                 there should be less than this.height - 4 lines
      */
-    public static void dialogueOnlyPrint(String[][] dialogue) {
+    public static void dialogueBoxPrint(String[][] dialogue) {
         // i is a String[] block of text
         // each iteration of this loop is a block of text
         // that the user can RET to get next block
@@ -85,6 +91,25 @@ public class UI {
 
             scan.nextLine();
         }            
+    }
+
+    /**
+     * prints out the map from a given Environment
+     */
+    public static void printMap(Environment environment) {
+        char[][] map = environment.getMap();
+
+        String output = "";
+
+        for(char[] row : map) {
+            for(char tile : row) {
+                output += tile;
+                output += " ";
+            }
+            output += "\n";
+        }
+
+        System.out.println(output);
     }
 
     // TODO use recursion:

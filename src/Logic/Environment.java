@@ -3,13 +3,31 @@ package Logic;
 import Entities.*;
 import java.util.ArrayList;
 
+/**
+ * This class stores all the data and methods to simulate an environment.
+ * This does not include methods to render the environment.
+ * All things that have to do with what a user can see are in UI.java.
+ */
 public class Environment {
     private char[][] map;
     private String objective;
-    private ArrayList<String[][]> dialogueQueue = new ArrayList<>();
-    private ArrayList<Enemy> enemyList = new ArrayList<>();
-    private ArrayList<Fireball> fireballList = new ArrayList<>();
+    private ArrayList<String[][]> dialogueQueue;
+    private ArrayList<Enemy> enemyList;
+    private ArrayList<Fireball> fireballList;
     private int timesMoved;  // TODO use for tutorial and keeping track of BossTomato pullatk?
+
+    public Environment(char[][] map) {
+        this.map = map;
+        this.objective = "";
+        this.dialogueQueue = new ArrayList<>();
+        this.enemyList = new ArrayList<>();
+        this.fireballList = new ArrayList<>();
+    }
+
+    // METHODS FOR char[][] map VARIABLE
+    public char[][] getMap() {
+        return map;
+    }
 
     // METHODS FOR String objective VARIABLE
     public String getObjective() {

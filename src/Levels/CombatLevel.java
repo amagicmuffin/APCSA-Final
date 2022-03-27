@@ -11,17 +11,17 @@ public class CombatLevel {
 
     // temp test
     public static void main(String[] args) {
-        Environment walmart = new Environment();
-
-        ArrayList<Entity> eList = new ArrayList<>();
-
-        eList.add(new Tomato(walmart));
-
-        for(Entity e : eList)
-            System.out.println(e);
-        System.out.println("\n\n");
-
-        Entity f = new Tomato(walmart);
-        System.out.println("getid: " + f.getId());
+//        Environment walmart = new Environment();
+//
+//        ArrayList<Entity> eList = new ArrayList<>();
+//
+//        eList.add(new Tomato(walmart));
+//
+//        for(Entity e : eList)
+//            System.out.println(e);
+//        System.out.println("\n\n");
+//
+//        Entity f = new Tomato(walmart);
+//        System.out.println("getid: " + f.getId());
     }
 }
