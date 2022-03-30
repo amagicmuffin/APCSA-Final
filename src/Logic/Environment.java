@@ -39,38 +39,53 @@ public class Environment {
     }
 
     // METHODS FOR ArrayList<String[][]> dialogueQueue VARIABLE ////////////////////
+
+    /**
+     * Returns true if dialogueQueue has dialogue queued.
+     * Aka: returns true if dialogueQueue is not empty
+     */
+    public boolean hasNextDialogue() {
+        return dialogueQueue.size() != 0;
+    }
+
     /**
      * Returns next dialogue (at index 0 of dialogueQueue) and deletes that dialogue.
      */
     public String[][] nextDialogue() {
-        return new String[][]{};
+        String[][] ans = dialogueQueue.get(0);
+
+        dialogueQueue.remove(0);
+
+        return ans;
     }
 
     /**
-     * @param dialogue adds this to the right end of dialogueQueue
+     * Adds a dialogue to the right end of dialogueQueue.
+     * A dialogue should be a String[][] where an item is a block and an item of an item is a line of text.
      */
     public void addDialogueToQ(String[][] dialogue) {
-
+        dialogueQueue.add(dialogue);
     }
 
     // METHODS FOR ArrayList<Enemy> enemyList VARIABLE ////////////////////
     /**
-     * @param enemy added to enemyList
+     * Adds an enemy to enemyList
      */
     public void spawnEnemy(Enemy enemy) {
         enemyList.add(enemy);
     }
 
     /**
-     * @param index Removes the enemy at this index of enemyList
+     * Removes the enemy at an index of enemyList
      */
     public void despawnEnemy(int index) {
         enemyList.remove(index);
     }
 
     /**
-     * @deprecated there shoooouldn't be any reason to uses it because despawnEnemy(int index) shooould handle it
-     * Removes an enemy at iPos, jPos from enemyList if one exists
+     * @deprecated there shoooouldn't be any reason to uses it because despawnEnemy(int index) shooould handle it.
+     * Removes an enemy at iPos, jPos from enemyList if one exists.
+     * Maybe remove this later?
      */
     @Deprecated
     public void despawnEnemy(int iPos, int jPos) {
@@ -93,7 +108,9 @@ public class Environment {
 
     // MISC METHODS ////////////////////
     /**
-     * Updates all non-player Entities by one game tick
+     * Updates all non-player Entities by one game tick.
+     * Updates all Enemies first, then all Fireballs. This is because of how game logic works.
+     * (To prevent Tomatoes from "phasing through" Fireballs)
      */
     public void tick() {
         for(Enemy e : enemyList) {

@@ -11,14 +11,14 @@ public class UI {
     private static Scanner scan = new Scanner(System.in);
 
     /**
-     * prints out many newlines
+     * Prints out many newlines
      */
     public static void simpleClearScreen() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
     /**
-     * prints out item 0, prompts for user input, prints out item 0 and 1, prompts for user input, etc
+     * Prints out item 0, prompts for user input, prints out item 0 and 1, prompts for user input, etc
      */
     public static void simpleDialogue(String[] dialogue) {
         for(int i = 0; i < dialogue.length; i++) {
@@ -31,14 +31,15 @@ public class UI {
         }
     }
 
+    // TODO clean this up so it can be used on its own and then delete the final static variables in this class
     /**
-     * prints out a dialogue
-     * dialogues are split into blocks by user RET
-     * blocks are split into lines
-     * @param dialogue each item will be a block of text
-     *                 each item of an item will be a line
-     *                 a line should be shorter than this.width - 4 characters
-     *                 there should be less than this.height - 4 lines
+     * Prints out a dialogue.
+     * Dialogues are split into blocks by user RET.
+     * Blocks are split into lines.
+     * @param dialogue Each item will be a block of text.
+     *                 Each item of an item will be a line.
+     *                 A line should be shorter than this.width - 4 characters.
+     *                 There should be less than this.height - 4 lines.
      */
     public static void dialogueBoxPrint(String[][] dialogue) {
         // i is a String[] block of text
@@ -94,7 +95,7 @@ public class UI {
     }
 
     /**
-     * prints out the map from a given Environment
+     * Prints out the map from a given Environment
      */
     public static void printMap(Environment environment) {
         char[][] map = environment.getMap();
@@ -112,14 +113,52 @@ public class UI {
         System.out.println(output);
     }
 
-    // TODO use recursion:
-    // render(Environ), do a dialogue, remove the dialogue, after user [ENTER], render(the new Environ)
     /**
-     * Takes an Environment as a parameter.
-     * Renders that Environment (including the map, current goal, and dialogue)
+     * Renders an Environment (including the map, current objective, and dialogue).
      * If dialogue is queued for the Environment, let user [ENTER] through it
      */
-    public static void render(Environment environment) {
+    public static void renderEnvironment(Environment e) {
+        while (e.hasNextDialogue()) {
+            renderDialogue(e.getObjective(), fmtMap(e.getMap()), e.nextDialogue());
+        }
+        renderDialogue(e.getObjective(), fmtMap(e.getMap()), new String[][]{{""}});
+    }
 
+    /**
+     * "compresses" a 2d char map into a 1d String map where each item is a row.
+     * There is a space after each char.
+     */
+    private static String[] fmtMap(char[][] map) {
+        String[] ans = new String[map.length];
+        for(int row = 0; row < map.length; row++) {
+            ans[row] = "";
+            for(char tile : map[row]) {
+                ans[row] += tile + " ";
+            }
+        }
+
+        return ans;
+    }
+
+    private static void renderDialogue(String objective, String[] map, String[][] diag) {
+        for(String[] block : diag) {
+            renderBlock(objective, map, block);
+        }
+    }
+
+    private static void renderBlock(String objective, String[] map, String[] text) {
+        int lineIndex = 0;
+        for(; lineIndex < text.length; lineIndex++) {
+            System.out.print(map[lineIndex] + text[lineIndex] + "\n");
+        }
+
+        System.out.print(map[lineIndex] + "[ENTER] to continue.\n");
+        lineIndex++;
+
+        for(; lineIndex < map.length; lineIndex++) {
+            System.out.print(map[lineIndex] + "\n");
+        }
+
+        scan.nextLine();
     }
 }

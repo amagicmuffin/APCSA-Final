@@ -28,13 +28,24 @@ public class Main {
 
         // UI.printMap test
         char[][] map = {
-                {'1','2'},
-                {'3','4'},
-                {'5','6'}
+                {'#', '#', '#', '#'},
+                {'#', ' ', ' ', '#'},
+                {'#', ' ', ' ', '#'},
+                {'#', '#', '#', '#'}
+        };
+
+        String[] text = {
+                "yes",
+                "yes2"
         };
 
         Environment walmart = new Environment(map);
 
-        UI.printMap(walmart);
+        walmart.addDialogueToQ(new String[][]{text});
+
+        UI.renderEnvironment(walmart);
+
+//        UI.printMap(walmart);
+//        UI.renderBlock("objectivehere", map, text);
     }
 }
