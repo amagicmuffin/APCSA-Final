@@ -56,6 +56,7 @@
   + check for aoe attack, if applicable
 
 * misc ideas
+  + TODO updating map: take entitylessmap and add all entities
   + TODO redo javadocs to play nice with html export (no @param if param is only line)
   + ui: dialouge, map, input, objective
   + new thing

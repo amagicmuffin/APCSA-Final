@@ -3,11 +3,11 @@ package Entities;
 import Logic.Environment;
 
 public abstract class Entity {
-    private String id;
-    private static int nextId = 0;
-    private int iPos;
-    private int jPos;
-    private Environment currentEnvironment;
+    protected String id;
+    protected static int nextId = 0;
+    protected int iPos;
+    protected int jPos;
+    protected Environment currentEnvironment;
 
     public Entity(Environment e) {
         this.id = "E" + nextId;

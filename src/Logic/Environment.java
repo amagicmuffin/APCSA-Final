@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * All things that have to do with what a user can see are in UI.java.
  */
 public class Environment {
+    public static final char FLOOR_TILE = '.';
     private char[][] map;
     private String objective;
     private ArrayList<String[][]> dialogueQueue;
@@ -27,6 +28,22 @@ public class Environment {
     // METHODS FOR char[][] map VARIABLE
     public char[][] getMap() {
         return map;
+    }
+
+    /**
+     * Returns true if the tile at i,j is empty.
+     * This is used to check if an entity can move to it.
+     */
+    public boolean emptyTileAt(int i, int j) {
+        return map[i][j] == FLOOR_TILE;
+    }
+
+    /**
+     * TODO Updates private char[][] map based on entity lists.
+     */
+    public void updateMap() {
+        // TODO
+        System.out.println("TODO make it so that map is updated rn");
     }
 
     // METHODS FOR String objective VARIABLE
