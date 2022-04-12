@@ -3,10 +3,10 @@ package Entities;
 import Logic.Environment;
 
 public abstract class Enemy extends Entity {
-    int hp;
+    protected int hp;
 
-    public Enemy(Environment e) {
-        super(e);
+    public Enemy(Environment e, int i, int j) {
+        super(e, i ,j);
         super.setId("N" + super.getId().substring(1));
     }
 

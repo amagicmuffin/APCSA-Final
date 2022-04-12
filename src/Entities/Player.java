@@ -2,17 +2,32 @@ package Entities;
 
 import Logic.Environment;
 
-public class Player extends Entity {
-    String facing;
+public class Player{
+    private static int iPos;
+    private static int jPos;
+    private static String facing;
 
-    public Player(Environment e, String facing) {
-        super(e);
-        super.setId("P" + super.getId().substring(1));
-        this.facing = facing;
+    public static int getiPos() {
+        return iPos;
     }
 
-    @Override
-    public void tick() {
-        System.out.println(this.getId() + " was ticked");
+    public static void setiPos(int iPos) {
+        Player.iPos = iPos;
+    }
+
+    public static int getjPos() {
+        return jPos;
+    }
+
+    public static void setjPos(int jPos) {
+        Player.jPos = jPos;
+    }
+
+    public static String getFacing() {
+        return facing;
+    }
+
+    public static void setFacing(String facing) {
+        Player.facing = facing;
     }
 }

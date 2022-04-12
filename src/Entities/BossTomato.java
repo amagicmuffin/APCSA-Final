@@ -3,14 +3,15 @@ package Entities;
 import Logic.Environment;
 
 public class BossTomato extends Enemy {
-    public BossTomato(Environment e) {
-        super(e);
+    public BossTomato(Environment e, int i, int j) {
+        super(e, i, j);
         super.setId("B" + super.getId().substring(1));
+        tile = 'X';
     }
 
     @Override
     public void tick() {
-        System.out.println(this.getId() + " was ticked");
+//        System.out.println(this.getId() + " was ticked");
     }
 
     /**

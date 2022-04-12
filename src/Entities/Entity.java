@@ -3,17 +3,20 @@ package Entities;
 import Logic.Environment;
 
 public abstract class Entity {
-    private String id;
-    private static int nextId = 0;
-    private int iPos;
-    private int jPos;
-    private Environment currentEnvironment;
+    protected String id;
+    protected static int nextId = 0;
+    protected int iPos;
+    protected int jPos;
+    protected char tile;
+    protected Environment currentEnvironment;
 
-    public Entity(Environment e) {
+    public Entity(Environment e, int i, int j) {
         this.id = "E" + nextId;
         nextId++;
 
         currentEnvironment = e;
+        iPos = i;
+        jPos = j;
     }
 
     public String getId() {
@@ -38,6 +41,10 @@ public abstract class Entity {
 
     public void setjPos(int jPos) {
         this.jPos = jPos;
+    }
+
+    public char getTile() {
+        return tile;
     }
 
     public Environment getCurrentEnvironment() {

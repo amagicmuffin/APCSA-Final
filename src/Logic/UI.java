@@ -1,13 +1,12 @@
 package Logic;
 
+import Entities.Enemy;
+import Entities.Fireball;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
-    public static final String line = "########################################\n";
-    public static final String emptyLine = "#                                      #\n";
-    public static final int width = 40;
-    public static final int height = 20;
     private static Scanner scan = new Scanner(System.in);
 
     /**
@@ -31,7 +30,6 @@ public class UI {
         }
     }
 
-    // TODO clean this up so it can be used on its own and then delete the final static variables in this class
     /**
      * Prints out a dialogue.
      * Dialogues are split into blocks by user RET.
@@ -42,6 +40,10 @@ public class UI {
      *                 There should be less than this.height - 4 lines.
      */
     public static void dialogueBoxPrint(String[][] dialogue) {
+        final String boxLine = "########################################\n";
+        final String emptyLine = "#                                      #\n";
+        final int width = 40;
+        final int height = 20;
         // i is a String[] block of text
         // each iteration of this loop is a block of text
         // that the user can RET to get next block
@@ -51,7 +53,7 @@ public class UI {
             simpleClearScreen();
 
             String output = "";
-            output += line;
+            output += boxLine;
             output += emptyLine;
     
             // add all lines of dialogue
@@ -86,7 +88,7 @@ public class UI {
             }
     
             output += emptyLine;
-            output += line;
+            output += boxLine;
     
             System.out.println(output);
 
@@ -121,7 +123,7 @@ public class UI {
         while (e.hasNextDialogue()) {
             renderDialogue(e.getObjective(), fmtMap(e.getMap()), e.nextDialogue());
         }
-        renderDialogue(e.getObjective(), fmtMap(e.getMap()), new String[][]{{""}});
+        // renderDialogue(e.getObjective(), fmtMap(e.getMap()), new String[][]{{""}});
     }
 
     /**
@@ -147,6 +149,7 @@ public class UI {
     }
 
     private static void renderBlock(String objective, String[] map, String[] text) {
+        System.out.println("Objective: " + objective);
         int lineIndex = 0;
         for(; lineIndex < text.length; lineIndex++) {
             System.out.print(map[lineIndex] + text[lineIndex] + "\n");

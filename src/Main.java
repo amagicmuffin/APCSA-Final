@@ -1,3 +1,4 @@
+import Levels.CombatLevel;
 import Logic.*;
 
 public class Main {
@@ -27,6 +28,7 @@ public class Main {
         */
 
         // UI.printMap test
+        /*
         char[][] map = {
                 {'#', '#', '#', '#'},
                 {'#', ' ', ' ', '#'},
@@ -44,8 +46,8 @@ public class Main {
         walmart.addDialogueToQ(new String[][]{text});
 
         UI.renderEnvironment(walmart);
+        */
 
-//        UI.printMap(walmart);
-//        UI.renderBlock("objectivehere", map, text);
+        new CombatLevel();
     }
 }

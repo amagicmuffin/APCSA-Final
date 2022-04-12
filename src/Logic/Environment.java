@@ -29,6 +29,10 @@ public class Environment {
         return map;
     }
 
+    public void setTile(int i, int j, char t) {
+        map[i][j] = t;
+    }
+
     // METHODS FOR String objective VARIABLE
     public String getObjective() {
         return objective;
@@ -68,6 +72,10 @@ public class Environment {
     }
 
     // METHODS FOR ArrayList<Enemy> enemyList VARIABLE ////////////////////
+    public ArrayList<Enemy> getEnemyList() {
+        return enemyList;
+    }
+
     /**
      * Adds an enemy to enemyList
      */
@@ -106,19 +114,30 @@ public class Environment {
          */
     }
 
+    // METHODS FOR ArrayList<Fireball> fireballList VARIABLE ////////////////////
+    public ArrayList<Fireball> getFireballList() {
+        return fireballList;
+    }
+
     // MISC METHODS ////////////////////
     /**
+     * Puts all newly spawned entities on the map.
      * Updates all non-player Entities by one game tick.
      * Updates all Enemies first, then all Fireballs. This is because of how game logic works.
      * (To prevent Tomatoes from "phasing through" Fireballs)
      */
-    public void tick() {
-        for(Enemy e : enemyList) {
-            e.tick();
-        }
+    public void update() {
+        // this block puts any newly spawned entities on the map
+        for(Enemy enemy : getEnemyList())
+            setTile(enemy.getiPos(), enemy.getjPos(), enemy.getTile());
+        for(Fireball fireball : getFireballList())
+            setTile(fireball.getiPos(), fireball.getjPos(), fireball.getTile());
 
-        for(Fireball f : fireballList) {
-            f.tick();
-        }
+        // ticks all entities
+        for(Enemy enemy : getEnemyList()) enemy.tick();
+        for(Fireball fireball : getFireballList()) fireball.tick();
+
+        // environmental things below
+
     }
 }
