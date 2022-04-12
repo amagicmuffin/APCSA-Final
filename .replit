@@ -1,2 +1,2 @@
 language = "bash"
-run = "javac -d \"out/production/APCSA Final\" src/*.java"
+run = "javac -d \"out/production/APCSA Final\" src/*.java src/*/*.java"

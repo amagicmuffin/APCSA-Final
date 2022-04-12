@@ -19,5 +19,27 @@ public class Fireball extends Entity {
     @Override
     public void tick() {
 //        System.out.println(this.getId() + " was ticked");
+        // boolean canMove = super.currentEnvironment.emptyTileAt(super.iPos, super.jPos);
+        // if(canMove) {
+        //     move(facing);
+        // }
+
+        //tryMove(facing);
     }
+
+    private void move(String direction) {
+        
+    }
+    
+    /**
+     * Helper function
+     */
+    // private void move(String direction) {
+    //     if(direction.equals("l")) super.jPos--;
+    //     if(direction.equals("r")) super.jPos++;
+    //     if(direction.equals("u")) super.iPos--;
+    //     if(direction.equals("d")) super.iPos++;
+        
+    //     super.currentEnvironment.updateMap();
+    // }
 }

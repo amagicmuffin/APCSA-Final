@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * All things that have to do with what a user can see are in UI.java.
  */
 public class Environment {
+    public static final char FLOOR_TILE = '.';
     private char[][] map;
     private String objective;
     private ArrayList<String[][]> dialogueQueue;
@@ -31,6 +32,14 @@ public class Environment {
 
     public void setTile(int i, int j, char t) {
         map[i][j] = t;
+    }
+
+    /**
+     * Returns true if the tile at i,j is empty.
+     * This is used to check if an entity can move to it.
+     */
+    public boolean emptyTileAt(int i, int j) {
+        return map[i][j] == FLOOR_TILE;
     }
 
     // METHODS FOR String objective VARIABLE
@@ -77,10 +86,11 @@ public class Environment {
     }
 
     /**
-     * Adds an enemy to enemyList
+     * Adds an enemy to enemyList and puts it on the map.
      */
     public void spawnEnemy(Enemy enemy) {
         enemyList.add(enemy);
+        map[enemy.getiPos()][enemy.getjPos()] = enemy.getTile();
     }
 
     /**
@@ -121,18 +131,11 @@ public class Environment {
 
     // MISC METHODS ////////////////////
     /**
-     * Puts all newly spawned entities on the map.
      * Updates all non-player Entities by one game tick.
      * Updates all Enemies first, then all Fireballs. This is because of how game logic works.
      * (To prevent Tomatoes from "phasing through" Fireballs)
      */
     public void update() {
-        // this block puts any newly spawned entities on the map
-        for(Enemy enemy : getEnemyList())
-            setTile(enemy.getiPos(), enemy.getjPos(), enemy.getTile());
-        for(Fireball fireball : getFireballList())
-            setTile(fireball.getiPos(), fireball.getjPos(), fireball.getTile());
-
         // ticks all entities
         for(Enemy enemy : getEnemyList()) enemy.tick();
         for(Fireball fireball : getFireballList()) fireball.tick();
